@@ -1,0 +1,11 @@
+{%- assign entries = site.pages | where: "layout", "entry"  | sort: "path" -%}
+{%- for entry in entries %}
+	{%- if entry.url == page.url %}
+		{%- assign current = forloop.index -%}
+		{%- assign next = current -%}
+		{% comment %}Index below starts at 0!{% endcomment %}
+	{%- endif %}
+{%- endfor -%}
+{%- if current < entries.size -%}
+	<a href="{{ entries[next].url | relative_url }}">Next entry</a>
+{%- endif %}

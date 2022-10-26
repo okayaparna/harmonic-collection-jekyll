@@ -1,0 +1,13 @@
+img {
+	max-width: 100%;
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+}
+
+.arrow-link {
+	color: red;
+	text-decoration: none;
+}

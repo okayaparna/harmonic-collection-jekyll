@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ page.title | default: site.title }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://core-interaction.github.io/assets/styles/reset.css" rel="stylesheet">
+		<link href="{{ 'common/style.css' | relative_url }}" rel="stylesheet">
+		{% if page.layout != 'default' %}
+			{% for file in site.static_files %}
+				{% if file.path contains page.dir and file.extname == ".css" %}
+					<link href="{{ file.path | relative_url }}" rel="stylesheet">
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	</head>
+	<body>
+		{{ content }}
+	</body>
+</html>
